@@ -42,7 +42,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
         'items' => [
             ['label' => 'Home', 'url' => ['/site/index']],
             ['label' => 'Productos', 'url' => ['/producto/index']],
-            ['label' => 'Esterilizaciones', 'url' => ['/esterilizaciones/index']],
+            ['label' => 'Esterilizacion', 'url' => ['/esterilizacion/index']],
             ['label' => 'Usuarios', 'url' => ['/usuario/index']],
             ['label' => 'About', 'url' => ['/site/about']],
             ['label' => 'Contact', 'url' => ['/site/contact']],
