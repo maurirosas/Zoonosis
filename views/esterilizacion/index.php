@@ -1,28 +1,39 @@
 <?php
 
 use yii\helpers\Url;
+use yii\bootstrap5\Html;
 
-/** @var array $productos */
+/** @var array $esterilizacion */
 ?>
 
-<h1>Lista de Esterilizaciones Registradas</h1>
+<h1>Lista de productos</h1>
 
 <div>
-<a href="index.php?r=producto/create" class="btn btn-primary">Registrar nueva Esterilización</a>
+<a href="index.php?r=esterilizacion/create" class="btn btn-primary">Nuevo Registro de Esterilizacion</a>
 </div>
 
 <table class="table">
     <thead>
-        <th>ID</th>
+        <th>ID Esterilizacion</th>
         <th>Nombre</th>
+        <th>Tatuaje</th>
+        <th>Especie</th>
+        <th>Dueño</th>
+        <th>Resultado</th>
         <th></th>
     </thead>
     <tbody>
-        <?php foreach($productos as $row): ?>
+        <?php foreach($esterilizacion as $row): ?>
         <tr>
             <td> <?= $row['id'] ?> </td>
             <td> <?= $row['nombre'] ?> </td>
-            <td> <a href="index.php?r=producto/view&id=<?= $row['id'] ?>"  ><i class="fa-solid fa-eye"></i></a> </td>
+            <td> 
+                <a href="index.php?r=producto/view&id=<?= $row['id'] ?>"  ><i class="fa-solid fa-eye"></i></a>
+                <a href="index.php?r=producto/update&id=<?= $row['id'] ?>"  ><i class="fa-solid fa-pencil"></i></a>
+
+                <?= Html::a('<i class="fa-solid fa-trash-can"></i>', ['producto/delete', 'id' => $row['id']], ['data-confirm' => 'Desea eliminar el producto?']) ?>
+
+            </td>
         </tr>
         <?php endforeach ?>
     </tbody>

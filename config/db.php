@@ -2,7 +2,7 @@
 
 return [
     'class' => yii\db\Connection::class,
-    'dsn' => 'mariadb:host=localhost;port:3306;dbname=proyectoZoonosis',
+    'dsn' => 'mysql:host=localhost;port:3306;dbname=proyectoZoonosis',
     'username' => 'kali',
     'password' => 'kali',
     'charset' => 'utf8',
