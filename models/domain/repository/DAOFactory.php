@@ -18,6 +18,13 @@ class DAOFactory {
         return new UsuarioDAO();
     }
 
+    //Animal
+    public static $animalDAO = AnimalDAO::class;
+    
+    public static function getAnimalDAO() : UsuarioDAO{
+        return new self::$animalDAO;
+    }
+
     // Esterilizacion
 
     public static $esterilizacionDAO = EsterilizacionDAO::class;
