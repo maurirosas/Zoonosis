@@ -2,9 +2,9 @@
 
 return [
     'class' => yii\db\Connection::class,
-    'dsn' => 'mysql:host=localhost;port:3306;dbname=proyectoZoonosis',
-    'username' => 'kali',
-    'password' => 'kali',
+    'dsn' => 'mysql:host=localhost;port=3306;dbname=proyectoZoonosis',
+    'username' => 'maurirosas',
+    'password' => 'spoty244',
     'charset' => 'utf8',
 
     // Schema cache options (for production environment)

@@ -6,7 +6,7 @@ use yii\bootstrap5\Html;
 /** @var array $esterilizacion */
 ?>
 
-<h1>Lista de productos</h1>
+<h1>Lista de esterilizaciones</h1>
 
 <div>
 <a href="index.php?r=esterilizacion/create" class="btn btn-primary">Nuevo Registro de Esterilizacion</a>

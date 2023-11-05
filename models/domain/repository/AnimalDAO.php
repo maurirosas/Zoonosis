@@ -14,8 +14,7 @@ class AnimalDAO{
         $cmd = Yii::$app->db->createCommand("
             SELECT *
             FROM paciente_animal
-            ORDER BY nombre_animal
-            .
+            ORDER BY id_animal
         ");
         return $cmd->queryAll();
 
@@ -51,6 +50,7 @@ class AnimalDAO{
             'zona_direccion'=> $animal -> direccion,
             'tipo_dueno' => $animal -> tipo_dueno,
             'edad' => $animal -> edad,
+            'especie' => $animal -> especie
         ]);
 
         return $cmd->execute();
@@ -60,7 +60,12 @@ class AnimalDAO{
     {
         $cmd = Yii::$app->db->createCommand("
             UPDATE paciente_animal SET
-            nombre = :nombre,
+            nombre_animal = :nombre,
+            genero = :genero,
+            zonda_direccion = :zona_direccion,
+            tipo_dueno = :tipo_dueno,
+            edad = :edad,
+            especie = :especie,
             WHERE id = :id            
         ");
 
@@ -71,21 +76,22 @@ class AnimalDAO{
             'zona_direccion'=> $animal -> direccion,
             'tipo_dueno' => $animal -> tipo_dueno,
             'edad' => $animal -> edad,
+            'especie' => $animal -> especie
         ]);
 
         return $cmd->execute();
     }
 
-    public function delete(Producto $producto) : int
+    public function delete(Animal $animal) : int
     {
         
         $cmd = Yii::$app->db->createCommand("
-            DELETE FROM producto
+            DELETE FROM paciente_animal
             WHERE id = :id            
         ");
 
         $cmd->bindValues([
-            ':id' => $producto->id,
+            ':id' => $animal->id_,
         ]);
 
         return $cmd->execute();

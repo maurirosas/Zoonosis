@@ -4,33 +4,33 @@ namespace app\controllers;
 
 use Yii;
 use yii\web\Controller;
-use app\models\EsterilizacionForm;
-use app\models\domain\entity\Esterilizacion;
+use app\models\AnimalForm;
+use app\models\domain\entity\Animal;
 
-class EsterilizacionController extends Controller
+class AnimalController extends Controller
 {
 
     public function actionIndex()
     {
-        $esterilizacion = Esterilizacion::getAll();
+        $animal = Animal::getAll();
 
         return $this->render('index', [
-            'esterilizacion' => $esterilizacion
+            'animal' => $animal
         ]);
     }
 
     public function actionView($id)
     {
-        $esterilizacion = Esterilizacion::getById($id);
+        $animal = Animal::getById($id);
 
         return $this->render('view', [
-            'model' => $esterilizacion,
+            'model' => $animal,
         ]);
     }
 
     public function actionCreate()
     {
-        $form = new EsterilizacionForm();
+        $form = new AnimalForm();
 
         if (Yii::$app->request->isPost) {
             if (
@@ -38,7 +38,7 @@ class EsterilizacionController extends Controller
                 && $form->validate()
                 && $form->create()
             ) {
-                Yii::$app->session->addFlash('success', 'Producto guardado');
+                Yii::$app->session->addFlash('success', 'Animal guardado');
                 return $this->redirect(['index']);
             }
         }
@@ -50,11 +50,16 @@ class EsterilizacionController extends Controller
 
     public function actionUpdate($id)
     {
-        $esterilizacion = Esterilizacion::getById($id);
+        $animal = Animal::getById($id);
 
-        $form = new EsterilizacionForm();
-        $form->id = $producto->id;
-        $form->nombre = $producto->nombre;
+        $form = new AnimalForm();
+        $form->id = $animal->id;
+        $form->animal = $animal->nombre;
+        $form ->animal = $animal->genero;
+        $form ->animal = $animal->direccion;
+        $form ->animal = $animal->tipo_dueno;
+        $form ->animal = $animal->edad;
+        $form ->animal = $animal->especie;
 
         if (Yii::$app->request->isPost) {
             if (
@@ -62,7 +67,7 @@ class EsterilizacionController extends Controller
                 && $form->validate()
                 && $form->update()
             ) {
-                Yii::$app->session->addFlash('success', 'Producto actualizado');
+                Yii::$app->session->addFlash('success', 'Animal actualizado');
                 return $this->redirect(['index']);
             }
         }
@@ -75,8 +80,8 @@ class EsterilizacionController extends Controller
 
     public function actionDelete($id)
     {
-        $producto = Producto::getById($id);
-        $producto->delete();
+        $animal = Animal::getById($id);
+        $animal->delete();
         return $this->redirect(['index']);
     }
 }

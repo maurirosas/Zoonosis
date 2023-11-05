@@ -4,6 +4,8 @@ namespace app\models\domain\repository;
 
 use app\models\domain\repository\ProductoDAO;
 use app\models\domain\repository\EsterilizacionDAO;
+use app\models\domain\repository\AnimalDAO;
+
 class DAOFactory {
 
     // Productos
@@ -21,7 +23,7 @@ class DAOFactory {
     //Animal
     public static $animalDAO = AnimalDAO::class;
     
-    public static function getAnimalDAO() : UsuarioDAO{
+    public static function getAnimalDAO() : AnimalDAO{
         return new self::$animalDAO;
     }
 

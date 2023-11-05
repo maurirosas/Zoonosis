@@ -10,7 +10,7 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 
-class SiteControler extends Controllea  r
+class SiteController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -23,7 +23,7 @@ class SiteControler extends Controllea  r
                 'only' => ['logout'],
                 'rules' => [
                     [
-                        'actions' => ['logout'],<
+                        'actions' => ['logout'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],

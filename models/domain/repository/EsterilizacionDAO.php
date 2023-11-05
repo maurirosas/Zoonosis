@@ -14,7 +14,7 @@ class EsterilizacionDAO{
         $cmd = Yii::$app->db->createCommand("
             SELECT *
             FROM documento_esterilizacion
-            ORDER BY id_esterilizacion
+            ORDER BY id_doc_esterilizacion
         ");
         return $cmd->queryAll();
 
