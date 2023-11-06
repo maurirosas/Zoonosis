@@ -41,9 +41,10 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
         'options' => ['class' => 'navbar-nav'],
         'items' => [
             ['label' => 'Inicio', 'url' => ['/site/index']],
-            ['label' => 'Productos', 'url' => ['/producto/index']],
+            ['label' => 'Inventario', 'url' => ['/producto/index']],
             ['label' => 'Esterilizacion', 'url' => ['/esterilizacion/index']],
-            ['label' => 'Lista de animales', 'url' => ['/animal/index']],            
+            ['label' => 'Lista de animales', 'url' => ['/animal/index']],
+            ['label' => 'Lista de propietarios', 'url' => ['/propietario/index']],                        
             ['label' => 'Usuarios', 'url' => ['/usuario/index']],
             //['label' => 'About', 'url' => ['/site/about']],
             /*['label' => 'otro menu', 'items' => [

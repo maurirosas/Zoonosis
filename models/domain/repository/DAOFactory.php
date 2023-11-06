@@ -27,6 +27,13 @@ class DAOFactory {
         return new self::$animalDAO;
     }
 
+    //Propietario
+    public static $propietarioDAO = PropietarioDAO::class;
+    
+    public static function getPropietarioDAO() : PropietarioDAO{
+        return new self::$propietarioDAO;
+    }
+
     // Esterilizacion
 
     public static $esterilizacionDAO = EsterilizacionDAO::class;
