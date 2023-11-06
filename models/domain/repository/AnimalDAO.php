@@ -39,13 +39,13 @@ class AnimalDAO{
     public function create(Animal $animal) : int
     {
         $cmd = Yii::$app->db->createCommand("
-            INSERT INTO animal (id, nombre_animal, genero, zona_direccion, tipo_dueno, edad, especie) 
+            INSERT INTO paciente_animal (id_animal, nombre_animal, genero, zona_direccion, tipo_dueno, edad, especie) 
             VALUES(:id, :nombre_animal, :genero, :zona_direccion, :tipo_dueno, :edad, :especie);
         ");
 
         $cmd->bindValues([
             ':id' => $animal->id,
-            ':nombre' => $animal->nombre,
+            ':nombre_animal' => $animal->nombre,
             ':genero' => $animal -> genero,
             'zona_direccion'=> $animal -> direccion,
             'tipo_dueno' => $animal -> tipo_dueno,
@@ -87,11 +87,11 @@ class AnimalDAO{
         
         $cmd = Yii::$app->db->createCommand("
             DELETE FROM paciente_animal
-            WHERE id = :id            
+            WHERE id_animal = :id            
         ");
 
         $cmd->bindValues([
-            ':id' => $animal->id_,
+            ':id' => $animal->id,
         ]);
 
         return $cmd->execute();

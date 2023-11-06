@@ -54,12 +54,12 @@ class AnimalController extends Controller
 
         $form = new AnimalForm();
         $form->id = $animal->id;
-        $form->animal = $animal->nombre;
-        $form ->animal = $animal->genero;
-        $form ->animal = $animal->direccion;
-        $form ->animal = $animal->tipo_dueno;
-        $form ->animal = $animal->edad;
-        $form ->animal = $animal->especie;
+        $form->nombre = $animal->nombre;
+        $form ->genero = $animal->genero;
+        $form ->direccion = $animal->direccion;
+        $form ->tipo_dueno = $animal->tipo_dueno;
+        $form ->edad = $animal->edad;
+        $form ->especie = $animal->especie;
 
         if (Yii::$app->request->isPost) {
             if (

@@ -40,20 +40,20 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav'],
         'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
+            ['label' => 'Inicio', 'url' => ['/site/index']],
             ['label' => 'Productos', 'url' => ['/producto/index']],
             ['label' => 'Esterilizacion', 'url' => ['/esterilizacion/index']],
             ['label' => 'Lista de animales', 'url' => ['/animal/index']],            
             ['label' => 'Usuarios', 'url' => ['/usuario/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'otro menu', 'items' => [
+            //['label' => 'About', 'url' => ['/site/about']],
+            /*['label' => 'otro menu', 'items' => [
                 ['label' => 'About', 'url' => ['/site/about']],
                 ['label' => 'About', 'url' => ['/site/about']],
                 ['label' => 'About', 'url' => ['/site/about']],
             ]],
             
-            ['label' => 'Contact', 'url' => ['/site/contact']],
-            Yii::$app->user->isGuest
+            ['label' => 'Contact', 'url' => ['/site/contact']],*/
+            /*Yii::$app->user->isGuest
                 ? ['label' => 'Login', 'url' => ['/site/login']]
                 : '<li class="nav-item">'
                     . Html::beginForm(['/site/logout'])
@@ -62,7 +62,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                         ['class' => 'nav-link btn btn-link logout']
                     )
                     . Html::endForm()
-                    . '</li>'
+                    . '</li>'*/
         ]
     ]);
     NavBar::end();

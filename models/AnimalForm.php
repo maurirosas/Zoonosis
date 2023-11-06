@@ -16,15 +16,14 @@ class AnimalForm extends Model
     public $especie;
 
     public function rules()
-    {
-        return [
-            ['id', 'safe'],
-            ['nombre', 'safe'],
-            ['genero', 'string'],
-            ['direccion', 'string', 'length'=>[4,24]],
-            
-        ];
-    }
+{
+    return [
+        [['nombre', 'genero', 'direccion', 'tipo_dueno', 'edad', 'especie'], 'required'],
+        [['nombre', 'genero', 'direccion', 'especie', 'edad'], 'string'],
+        [['tipo_dueno'], 'integer'],
+    ];
+}
+
 
     public function create() : bool{
         $this->id = uniqid();
