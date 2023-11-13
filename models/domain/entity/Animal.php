@@ -14,18 +14,12 @@ class animal
     public string $edad = '';
     public string $especie = '';
 
-    public function load(array $attributes): static
+    public function load(array $attributes): void
     {
         foreach ($attributes as $key => $value) {
-            if ($key === 'id') {
-                $this->{$key} = intval($value);
-            } else if ($key === 'tipo_dueno') {
-                $this->{$key} = intval($value);
-            } else {
-                $this->{$key} = $value;
-            }
+                
         }
-        return $this;
+        $this->id = $attributes[id_animal];
     }
 
     public static function getById(string $id): static
@@ -33,6 +27,9 @@ class animal
         $data = DAOFactory::getAnimalDAO()->getById($id);
         $model = new Animal();
         $model->load($data);
+        echo('<pre>');
+        print_r($data);
+        exit();
         return $model;
     }
 

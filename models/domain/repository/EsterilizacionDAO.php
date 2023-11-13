@@ -26,7 +26,7 @@ class EsterilizacionDAO{
         $cmd = Yii::$app->db->createCommand("
             SELECT *
             FROM documento_esterilizacion
-            WHERE id = :id
+            WHERE id_doc_esterilizacion = :id
         ");
 
         $cmd->bindValue(':id', $id, PDO::PARAM_INT);
@@ -39,13 +39,13 @@ class EsterilizacionDAO{
     public function create(Esterilizacion $esterilizacion) : int
     {
         $cmd = Yii::$app->db->createCommand("
-            INSERT INTO producto (id, nombre) 
-            VALUES(:id, :nombre);
+            INSERT INTO documento_esterilizacion (id_doc_esterilizacion, tatuaje, fecha_esterilizacion, dataType, id_dueno, id_animal) 
+            VALUES(:id, :tatuaje, :fecha_esterilizacion, :dataType, :id_dueno, :id_animal);
         ");
 
         $cmd->bindValues([
             ':id' => $esterilizacion->id,
-            ':nombre' => $esterilizacion->tatuaje
+            ':tatuaje' => $esterilizacion->tatuaje
         ]);
 
         return $cmd->execute();

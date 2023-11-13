@@ -6,12 +6,12 @@ use app\models\domain\repository\DAOFactory;
 
 class Esterilizacion{
 
-    public string $id = '';
+    public int $id = 0 ;
     public string $tatuaje= '';
-    public string $fecha='';
+    public ?date $fecha= null;
     public string $dataType='';
-    public string $id_dueno='';
-    public string $id_animal='';
+    public int $id_dueno=0;
+    public int $id_animal=0;
 
 
     public function load(array $attributes) : static

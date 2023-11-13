@@ -87,11 +87,11 @@ class PropietarioDAO{
         
         $cmd = Yii::$app->db->createCommand("
             DELETE FROM acompanante_propietario
-            WHERE id_dueno = :id_dueno          
+            WHERE id_dueno = :id          
         ");
 
         $cmd->bindValues([
-            ':id_dueno' => $propietario->id,
+            ':id' => $propietario->id_dueno,
         ]);
 
         return $cmd->execute();

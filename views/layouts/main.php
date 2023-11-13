@@ -42,10 +42,14 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
         'items' => [
             ['label' => 'Inicio', 'url' => ['/site/index']],
             ['label' => 'Inventario', 'url' => ['/producto/index']],
-            ['label' => 'Esterilizacion', 'url' => ['/esterilizacion/index']],
+            ['label' => 'Nuevo Registro', 'items' => [
+                ['label' => 'Esterilización', 'url' => ['/esterilizacion/index']],
+                ['label' => 'Seguimiento Epidemiológico', 'url' => ['/rabia/index']],
+            ]],
             ['label' => 'Lista de animales', 'url' => ['/animal/index']],
             ['label' => 'Lista de propietarios', 'url' => ['/propietario/index']],                        
             ['label' => 'Usuarios', 'url' => ['/usuario/index']],
+            
             //['label' => 'About', 'url' => ['/site/about']],
             /*['label' => 'otro menu', 'items' => [
                 ['label' => 'About', 'url' => ['/site/about']],

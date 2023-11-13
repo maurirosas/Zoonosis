@@ -91,7 +91,7 @@ class AnimalDAO{
         ");
 
         $cmd->bindValues([
-            ':id' => $animal->id,
+            ':id' => $animal->id_animal,
         ]);
 
         return $cmd->execute();

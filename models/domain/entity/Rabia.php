@@ -4,28 +4,26 @@ namespace app\models\domain\entity;
 
 use app\models\domain\repository\DAOFactory;
 
-class propietario
+class rabia
 {
     public int $id = 0;
-    public int $celular = 0;
-    public string $direccion = '';
-    public int $tipo_dueno = 0;
-    public string $nombre = '';
-    public string $apellidos = '';
-    public int $telefono = 0;
+    public string $municipio = '';
+    public bool $area = false;
+    public ?date $fecha_registro = null;
+    public string $json = '';
+    public int $id_dueno = 0;
+    public int $id_animal = 0;
 
     public function load(array $attributes): static
     {
         foreach ($attributes as $key => $value) {
             if ($key === 'id') {
                 $this->{$key} = intval($value);
-            } else if ($key === 'celular') {
+            } else if ($key === 'id_dueno') {
                 $this->{$key} = intval($value);
-            } else if ($key === 'tipo_dueno') {
+            }else if ($key === 'id_animal') {
                 $this->{$key} = intval($value);
-            } else if ($key === 'telefono') {
-                $this->{$key} = intval($value);
-            }else {
+            } else {
                 $this->{$key} = $value;
             }
         }
@@ -34,29 +32,29 @@ class propietario
 
     public static function getById(string $id): static
     {
-        $data = DAOFactory::getPropietarioDAO()->getById($id);
-        $model = new Propietario();
+        $data = DAOFactory::getRabiaDAO()->getById($id);
+        $model = new Rabia();
         $model->load($data);
         return $model;
     }
 
     public static function getAll(): array
     {
-        return DAOFactory::getPropietarioDAO()->getAll();
+        return DAOFactory::getRabiaDAO()->getAll();
     }
 
     public function create(): int
     {
-        return DAOFactory::getPropietarioDAO()->create($this);
+        return DAOFactory::getRabiaDAO()->create($this);
     }
 
     public function update(): int
     {
-        return DAOFactory::getPropietarioDAO()->update($this);
+        return DAOFactory::getRabiaDAO()->update($this);
     }
 
     public function delete(): int
     {
-        return DAOFactory::getPropietarioDAO()->delete($this);
+        return DAOFactory::getRabiaDAO()->delete($this);
     }
 }
