@@ -32,8 +32,8 @@ use yii\bootstrap5\Html;
             <td> <?= $row['id_dueno'] ?> </td>
             <td> <?= $row['id_animal'] ?> </td>
             <td> 
-                <a href="index.php?r=rabia/view&id=<?= $row['id_doc_rabia'] ?>"  ><i class="fa-solid fa-eye"></i></a>
-                <a href="index.php?r=rabia/update&id=<?= $row['id_doc_rabia'] ?>"  ><i class="fa-solid fa-pencil"></i></a>
+                <a href="index.php?r=rabia/view&id_doc_rabia=<?= $row['id_doc_rabia'] ?>"  ><i class="fa-solid fa-eye"></i></a>
+                <a href="index.php?r=rabia/update&id_doc_rabia=<?= $row['id_doc_rabia'] ?>"  ><i class="fa-solid fa-pencil"></i></a>
 
                 <?= Html::a('<i class="fa-solid fa-trash-can"></i>', ['rabia/delete', 'id_doc_rabia' => $row['id_doc_rabia']], ['data-confirm' => '¿Desea eliminar el registro?']) ?>
 

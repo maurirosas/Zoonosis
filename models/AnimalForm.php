@@ -7,26 +7,26 @@ use app\models\domain\entity\Animal;
 
 class AnimalForm extends Model
 {
-    public $id;
-    public $nombre;
+    public $id_animal;
+    public $nombre_animal;
     public $genero;
-    public $direccion;
+    public $zona_direccion;
     public $tipo_dueno ;
-    public $edad ;
+    public $edad;
     public $especie;
 
     public function rules()
 {
     return [
-        [['nombre', 'genero', 'direccion', 'tipo_dueno', 'edad', 'especie'], 'required'],
-        [['nombre', 'genero', 'direccion', 'especie', 'edad'], 'string'],
+        [['nombre_animal', 'genero', 'zona_direccion', 'tipo_dueno', 'edad', 'especie'], 'required'],
+        [['nombre_animal', 'genero', 'zona_direccion', 'especie', 'edad'], 'string'],
         [['tipo_dueno'], 'integer'],
     ];
 }
 
 
     public function create() : bool{
-        $this->id = uniqid();
+        $this->id_animal = uniqid();
         
         $animal = new Animal();
         $animal->load($this->attributes);        
@@ -34,8 +34,14 @@ class AnimalForm extends Model
     }
     
     public function update() : bool{
-        $animal = Animal::getById($this->id);
-        $animal->nombre = $this->nombre;
+        $animal = Animal::getById($this->id_animal);
+        $animal->nombre_animal = $this->nombre_animal;
+        $animal->genero = $this->genero;
+        $animal->zona_direccion = $this->zona_direccion;
+        $animal->tipo_dueno = $this->tipo_dueno;
+        $animal->edad = $this->edad;
+        $animal->especie = $this->especie;
+
         return $animal->update() > 0;
     }
 }

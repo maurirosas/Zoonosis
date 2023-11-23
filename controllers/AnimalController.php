@@ -19,9 +19,9 @@ class AnimalController extends Controller
         ]);
     }
 
-    public function actionView($id)
+    public function actionView($id_animal)
     {
-        $animal = Animal::getById($id);
+        $animal = Animal::getById($id_animal);
 
         return $this->render('view', [
             'model' => $animal,
@@ -48,15 +48,15 @@ class AnimalController extends Controller
         ]);
     }
 
-    public function actionUpdate($id)
+    public function actionUpdate($id_animal)
     {
-        $animal = Animal::getById($id);
+        $animal = Animal::getById($id_animal);
 
         $form = new AnimalForm();
-        $form->id = $animal->id;
-        $form->nombre = $animal->nombre;
+        $form->id_animal= $animal->id_animal;
+        $form->nombre_animal = $animal->nombre_animal;
         $form ->genero = $animal->genero;
-        $form ->direccion = $animal->direccion;
+        $form ->zona_direccion = $animal->zona_direccion;
         $form ->tipo_dueno = $animal->tipo_dueno;
         $form ->edad = $animal->edad;
         $form ->especie = $animal->especie;
@@ -78,9 +78,9 @@ class AnimalController extends Controller
     }
 
 
-    public function actionDelete($id)
+    public function actionDelete($id_animal)
     {
-        $animal = Animal::getById($id);
+        $animal = Animal::getById($id_animal);
         $animal->delete();
         return $this->redirect(['index']);
     }

@@ -6,33 +6,25 @@ use app\models\domain\repository\DAOFactory;
 
 class rabia
 {
-    public int $id = 0;
+    public string $id_doc_rabia = '';
     public string $municipio = '';
-    public bool $area = false;
-    public ?date $fecha_registro = null;
+    public string $area = '';
+    public string $fecha_registro_rabia = '';
     public string $json = '';
-    public int $id_dueno = 0;
-    public int $id_animal = 0;
+    public string $id_dueno = '';
+    public string $id_animal = '';
 
     public function load(array $attributes): static
     {
         foreach ($attributes as $key => $value) {
-            if ($key === 'id') {
-                $this->{$key} = intval($value);
-            } else if ($key === 'id_dueno') {
-                $this->{$key} = intval($value);
-            }else if ($key === 'id_animal') {
-                $this->{$key} = intval($value);
-            } else {
-                $this->{$key} = $value;
-            }
+            $this->{$key} = $value;
         }
         return $this;
     }
 
-    public static function getById(string $id): static
+    public static function getById(string $id_doc_rabia): static
     {
-        $data = DAOFactory::getRabiaDAO()->getById($id);
+        $data = DAOFactory::getRabiaDAO()->getById($id_doc_rabia);
         $model = new Rabia();
         $model->load($data);
         return $model;

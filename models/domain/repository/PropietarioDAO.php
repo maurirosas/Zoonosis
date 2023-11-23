@@ -74,7 +74,7 @@ class PropietarioDAO{
             ':celular' => $propietario->celular,
             ':direccion'=> $propietario -> direccion,
             ':tipo_dueno' => $propietario -> tipo_dueno,
-            ':edad' => $propietario -> nombre,
+            ':nombre' => $propietario -> nombre,
             ':apellidos' => $propietario -> apellidos,
             ':telefono' => $propietario -> telefono
         ]);

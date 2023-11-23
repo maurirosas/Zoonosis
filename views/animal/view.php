@@ -4,17 +4,17 @@
 
 ?>
 
-<h1>Animal <?= $model->id ?></h1> 
+<h1>Animal <?= $model->id_animal?></h1> 
 
 <table class="table">
     <tbody>
         <tr>
             <td> ID </td>
-            <td> <?= $model->id ?> </td>
+            <td> <?= $model->id_animal ?> </td>
         </tr>
         <tr>
             <td> Nombre </td>
-            <td> <?= $model->nombre ?> </td>
+            <td> <?= $model->nombre_animal ?> </td>
         </tr>
         <tr>
             <td> Genero </td>
@@ -22,7 +22,7 @@
         </tr>
         <tr>
             <td> Direccion </td>
-            <td> <?= $model->direccion?> </td>
+            <td> <?= $model->zona_direccion?> </td>
         </tr>
         <tr>
             <td> Tipo de Dueño </td>

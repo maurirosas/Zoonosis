@@ -13,23 +13,26 @@ class RabiaController extends Controller
     public function actionIndex()
     {
         $rabia = Rabia::getAll();
-
         return $this->render('index', [
             'rabia' => $rabia
         ]);
+
     }
 
-    public function actionView($id)
+    public function actionView($id_doc_rabia)
     {
-        $rabia = Rabia::getById($id);
+        $rabia = Rabia::getById($id_doc_rabia);
+
 
         return $this->render('view', [
             'model' => $rabia,
         ]);
+        
     }
 
     public function actionCreate()
     {
+        
         $form = new RabiaForm();
 
         if (Yii::$app->request->isPost) {
@@ -48,15 +51,15 @@ class RabiaController extends Controller
         ]);
     }
 
-    public function actionUpdate($id)
+    public function actionUpdate($id_doc_rabia)
     {
-        $rabia = Rabia::getById($id);
+        $rabia = Rabia::getById($id_doc_rabia);
 
         $form = new RabiaForm();
-        $form->id = $rabia->id;
+        $form->id_doc_rabia = $rabia->id_doc_rabia;
         $form->municipio = $rabia->municipio;
         $form ->area = $rabia->area;
-        $form ->fecha = $rabia->fecha_registro;
+        $form ->fecha_registro = $rabia->fecha_registro_rabia;
         $form ->json = $rabia->json;
         $form ->id_dueno = $rabia->id_dueno;
         $form ->id_animal = $rabia->id_animal;
@@ -78,9 +81,9 @@ class RabiaController extends Controller
     }
 
 
-    public function actionDelete($id)
+    public function actionDelete($id_doc_rabia)
     {
-        $rabia = Rabia::getById($id);
+        $rabia = Rabia::getById($id_doc_rabia);
         $rabia->delete();
         return $this->redirect(['index']);
     }

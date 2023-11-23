@@ -6,30 +6,29 @@ use app\models\domain\repository\DAOFactory;
 
 class animal
 {
-    public int $id = 0;
-    public string $nombre = '';
+    public string $id_animal = '';
+    public string $nombre_animal = '';
     public string $genero = '';
-    public string $direccion = '';
-    public int $tipo_dueno = 0;
+    public string $zona_direccion = '';
+    public string $tipo_dueno = '';
     public string $edad = '';
     public string $especie = '';
 
-    public function load(array $attributes): void
+    public function load(array $attributes): static
     {
         foreach ($attributes as $key => $value) {
-                
+            $this->{$key} = $value;
         }
-        $this->id = $attributes[id_animal];
+
+
+        return $this;
     }
 
-    public static function getById(string $id): static
+    public static function getById(string $id_animal): static
     {
-        $data = DAOFactory::getAnimalDAO()->getById($id);
+        $data = DAOFactory::getAnimalDAO()->getById($id_animal);
         $model = new Animal();
         $model->load($data);
-        echo('<pre>');
-        print_r($data);
-        exit();
         return $model;
     }
 

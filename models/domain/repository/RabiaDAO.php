@@ -20,7 +20,7 @@ class RabiaDAO{
 
     }
 
-    public function getById(string $id): array
+    public function getById(string $id_doc_rabia): array
     {
         
         $cmd = Yii::$app->db->createCommand("
@@ -28,23 +28,21 @@ class RabiaDAO{
             FROM documento_rabia
             WHERE id_doc_rabia = :id_doc_rabia
         ");
-
-        $cmd->bindValue(':id_doc_rabia', $id, PDO::PARAM_INT);
+        
+        $cmd->bindValue(':id_doc_rabia', $id_doc_rabia, PDO::PARAM_INT);
 
         return $cmd->queryOne();
-
     }
 
 
     public function create(Rabia $rabia) : int
     {
         $cmd = Yii::$app->db->createCommand("
-            INSERT INTO documento_rabia (id_doc_rabia, municipio, area, json, id_dueno, id_animal) 
-            VALUES(:id_doc_rabia, :municipio, :area, :json, :id_dueno, :id_animal);
+            INSERT INTO documento_rabia (municipio, area, json, id_dueno, id_animal) 
+            VALUES(:municipio, :area, :json, :id_dueno, :id_animal);
         ");
 
         $cmd->bindValues([
-            ':id_doc_rabia' => $rabia->id,
             ':municipio' => $rabia->municipio,
             ':area'=>$rabia -> area,
             ':json'=> $rabia -> json,
@@ -63,15 +61,15 @@ class RabiaDAO{
             area = :area,
             json = :json,
             id_dueno = :id_dueno,
-            id_animal = :id_animal,
-            WHERE id = :id_doc_rabia            
+            id_animal = :id_animal
+            WHERE id_doc_rabia = :id_doc_rabia     
         ");
 
         $cmd->bindValues([
-            ':id_doc_rabia' => $rabia->id,
-            ':municipio' => $rabia->municipio,
+            ':id_doc_rabia' => $rabia->id_doc_rabia,
+            ':municipio' => $rabia -> municipio,
             ':area'=>$rabia -> area,
-            //':fecha_registro_rabia' => $rabia -> fecha,
+            //':fecha_registro_rabia' => $rabia -> fecha_registro_rabia,
             ':json'=> $rabia -> json,
             ':id_dueno' => $rabia -> id_dueno,
             ':id_animal' => $rabia -> id_animal,
@@ -85,11 +83,11 @@ class RabiaDAO{
         
         $cmd = Yii::$app->db->createCommand("
             DELETE FROM documento_rabia
-            WHERE id_rabia = :id            
+            WHERE id_doc_rabia = :id_doc_rabia           
         ");
 
         $cmd->bindValues([
-            ':id_doc_rabia' => $rabia->id,
+            ':id_doc_rabia' => $rabia->id_doc_rabia,
         ]);
 
         return $cmd->execute();
