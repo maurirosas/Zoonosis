@@ -19,9 +19,9 @@ class PropietarioController extends Controller
         ]);
     }
 
-    public function actionView($id)
+    public function actionView($id_dueno)
     {
-        $propietario = Propietario::getById($id);
+        $propietario = Propietario::getById($id_dueno);
 
         return $this->render('view', [
             'model' => $propietario,
@@ -48,17 +48,19 @@ class PropietarioController extends Controller
         ]);
     }
 
-    public function actionUpdate($id)
+    public function actionUpdate($id_dueno)
     {
-        $propietario = Propietario::getById($id);
+        $propietario = Propietario::getById($id_dueno);
 
         $form = new PropietarioForm();
-        $form->id = $propietario->id;
+        $form->id_dueno = $propietario->id_dueno;
         $form->celular = $propietario->celular ;
         $form ->direccion = $propietario->direccion;
         $form ->tipo_dueno = $propietario->tipo_dueno;
         $form ->nombre = $propietario->nombre;
         $form ->apellidos = $propietario->apellidos;
+        $form ->telefono = $propietario->telefono;
+
 
         if (Yii::$app->request->isPost) {
             if (
@@ -77,9 +79,9 @@ class PropietarioController extends Controller
     }
 
 
-    public function actionDelete($id)
+    public function actionDelete($id_dueno)
     {
-        $propietario = Propietario::getById($id);
+        $propietario = Propietario::getById($id_dueno);
         $propietario->delete();
         return $this->redirect(['index']);
     }

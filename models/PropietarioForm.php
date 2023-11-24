@@ -7,7 +7,7 @@ use app\models\domain\entity\Propietario;
 
 class PropietarioForm extends Model
 {
-    public $id;
+    public $id_dueno;
     public $celular;
     public $direccion;
     public $tipo_dueno ;
@@ -26,7 +26,7 @@ class PropietarioForm extends Model
 
 
     public function create() : bool{
-        $this->id = uniqid();
+        $this->id_dueno = uniqid();
         
         $propietario = new Propietario();
         $propietario->load($this->attributes);        
@@ -34,7 +34,7 @@ class PropietarioForm extends Model
     }
     
     public function update() : bool{
-        $propietario = Propietario::getById($this->id);
+        $propietario = Propietario::getById($this->id_dueno);
         $propietario->celular = $this->celular;
         $propietario -> direccion = $this -> direccion;
         $propietario -> tipo_dueno = $this -> tipo_dueno;

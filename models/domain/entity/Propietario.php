@@ -6,35 +6,25 @@ use app\models\domain\repository\DAOFactory;
 
 class propietario
 {
-    public int $id = 0;
-    public int $celular = 0;
+    public string $id_dueno = '';
+    public string $celular = '';
     public string $direccion = '';
-    public int $tipo_dueno = 0;
+    public string $tipo_dueno = '';
     public string $nombre = '';
     public string $apellidos = '';
-    public int $telefono = 0;
+    public string $telefono = '';
 
     public function load(array $attributes): static
     {
         foreach ($attributes as $key => $value) {
-            if ($key === 'id') {
-                $this->{$key} = intval($value);
-            } else if ($key === 'celular') {
-                $this->{$key} = intval($value);
-            } else if ($key === 'tipo_dueno') {
-                $this->{$key} = intval($value);
-            } else if ($key === 'telefono') {
-                $this->{$key} = intval($value);
-            }else {
                 $this->{$key} = $value;
-            }
         }
         return $this;
     }
 
-    public static function getById(string $id): static
+    public static function getById(string $id_dueno): static
     {
-        $data = DAOFactory::getPropietarioDAO()->getById($id);
+        $data = DAOFactory::getPropietarioDAO()->getById($id_dueno);
         $model = new Propietario();
         $model->load($data);
         return $model;

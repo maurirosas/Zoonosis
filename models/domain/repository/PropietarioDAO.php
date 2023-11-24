@@ -20,7 +20,7 @@ class PropietarioDAO{
 
     }
 
-    public function getById(string $id): array
+    public function getById(string $id_dueno): array
     {
         
         $cmd = Yii::$app->db->createCommand("
@@ -29,7 +29,7 @@ class PropietarioDAO{
             WHERE id_dueno = :id_dueno
         ");
 
-        $cmd->bindValue(':id_dueno', $id, PDO::PARAM_INT);
+        $cmd->bindValue(':id_dueno', $id_dueno, PDO::PARAM_INT);
 
         return $cmd->queryOne();
 
@@ -39,12 +39,11 @@ class PropietarioDAO{
     public function create(Propietario $propietario) : int
     {
         $cmd = Yii::$app->db->createCommand("
-            INSERT INTO acompanante_propietario (id_dueno, celular, direccion, tipo_dueno, nombre, apellidos, telefono) 
-            VALUES(:id_dueno, :celular, :direccion, :tipo_dueno, :nombre, :apellidos, :telefono);
+            INSERT INTO acompanante_propietario (celular, direccion, tipo_dueno, nombre, apellidos, telefono) 
+            VALUES(:celular, :direccion, :tipo_dueno, :nombre, :apellidos, :telefono);
         ");
 
         $cmd->bindValues([
-            ':id_dueno' => $propietario->id,
             ':celular' => $propietario->celular,
             ':direccion'=> $propietario -> direccion,
             ':tipo_dueno' => $propietario -> tipo_dueno,
@@ -70,7 +69,7 @@ class PropietarioDAO{
         ");
 
         $cmd->bindValues([
-            ':id_dueno' => $propietario->id,
+            ':id_dueno' => $propietario->id_dueno,
             ':celular' => $propietario->celular,
             ':direccion'=> $propietario -> direccion,
             ':tipo_dueno' => $propietario -> tipo_dueno,
@@ -87,11 +86,11 @@ class PropietarioDAO{
         
         $cmd = Yii::$app->db->createCommand("
             DELETE FROM acompanante_propietario
-            WHERE id_dueno = :id          
+            WHERE id_dueno = :id_dueno          
         ");
 
         $cmd->bindValues([
-            ':id' => $propietario->id_dueno,
+            ':id_dueno' => $propietario->id_dueno,
         ]);
 
         return $cmd->execute();

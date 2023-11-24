@@ -4,13 +4,13 @@
 
 ?>
 
-<h1>Propietario N° <?= $model->id ?></h1> 
+<h1>Propietario N° <?= $model->id_dueno ?></h1> 
 
 <table class="table">
     <tbody>
         <tr>
             <td> ID </td>
-            <td> <?= $model->id ?> </td>
+            <td> <?= $model->id_dueno ?> </td>
         </tr>
         <tr>
             <td> Nombre </td>
@@ -26,7 +26,7 @@
         </tr>
         <tr>
             <td> Telefono </td>
-            <td> <?= $model-> telefono ?> </td>
+            <td> <?= $model-> telefono?> </td>
         </tr>
         <tr>
             <td> Direccion </td>
