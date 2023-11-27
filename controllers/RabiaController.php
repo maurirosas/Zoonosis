@@ -59,7 +59,7 @@ class RabiaController extends Controller
         $form->id_doc_rabia = $rabia->id_doc_rabia;
         $form->municipio = $rabia->municipio;
         $form ->area = $rabia->area;
-        $form ->fecha_registro = $rabia->fecha_registro_rabia;
+        $form ->fecha_registro_rabia = $rabia->fecha_registro_rabia;
         $form ->json = $rabia->json;
         $form ->id_dueno = $rabia->id_dueno;
         $form ->id_animal = $rabia->id_animal;

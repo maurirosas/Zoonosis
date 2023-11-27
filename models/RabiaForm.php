@@ -9,7 +9,6 @@ class RabiaForm extends Model
 {
     public $id_doc_rabia;
     public $municipio;
-    public $fecha_registro;
     public $area;
     public $json;
     public $id_dueno;
@@ -61,7 +60,6 @@ class RabiaForm extends Model
         //Se debe cargar uno por uno cada atributo QUE VA EN LA BDD
         $rabia->id_doc_rabia = $this->id_doc_rabia;
         $rabia->municipio = $this->municipio;
-        $rabia->fecha_registro_rabia = $this->fecha_registro_rabia;
         $rabia->area = $this->area;
         $rabia->id_dueno = $this->id_dueno;
         $rabia->id_animal = $this->id_animal;
